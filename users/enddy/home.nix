@@ -34,8 +34,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    
     pkgs.neovim
-    pkgs.git
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -51,10 +51,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
-
-  home.shellAliases = {
-    # "vim" = "nvim";
   };
 
   # Home Manager can also manage your environment variables through
@@ -74,9 +70,38 @@
   #  /etc/profiles/per-user/enddy/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+
+  # git config
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      user.name = "xTrot";
+      user.email = "enddyygf93@live.com";
+      init.defaultBranch = "main";
+    };
+  };
+
+  # ssh config
+  services.ssh-agent.enable = true;
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      ControlMaster auto
+      ControlPath ~/.ssh/controlmasters/%r@%h:%p
+      ControlPersist 10m
+
+      ServerAliveInterval 60
+      ServerAliveCountMax 3
+      ConnectionAttempts 3
+      GSSAPIAuthentication no
+
+      AddKeysToAgent yes
+    '';
+  };
 }
