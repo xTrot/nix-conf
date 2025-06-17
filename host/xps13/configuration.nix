@@ -50,8 +50,8 @@
   # services.xserver.displayManager.gdm.enable = true;            # Deprecated
   # services.xserver.desktopManager.gnome.enable = true;          # Deprecated
 
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
+  # services.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -116,7 +116,32 @@
     curl
     thunderbird
     google-chrome
+
+    # Hyprland config
+    (waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    mako
+      libnotify
+    waybar
+      font-awesome
+    swww
+    rofi-wayland
+    networkmanagerapplet
   ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+
+  # Hyprland config
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs.hyprland = {
+   enable = true;
+   xwayland.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
