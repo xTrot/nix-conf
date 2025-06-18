@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -35,14 +35,23 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     
-    pkgs.tree
-    pkgs.dos2unix
-    pkgs.neofetch
+    # CLI stuff
+    vim
+    wget
+    curl
+    tree
+    dos2unix
+    neofetch
 
-    pkgs.neovim
+    # Desktop
+    kdePackages.dolphin
+    thunderbird
 
-    pkgs.go
-    pkgs.jdk
+    # Development
+    neovim
+
+    go
+    jdk
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -94,6 +103,7 @@
       user.name = "xTrot";
       user.email = "enddyygf93@live.com";
       init.defaultBranch = "main";
+      push.autosetupremote = true;
     };
   };
 
