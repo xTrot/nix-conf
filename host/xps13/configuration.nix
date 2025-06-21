@@ -111,20 +111,22 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Desktop
+    kdePackages.dolphin
+    thunderbird
     google-chrome
-
-    # Hyprland config
-    (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    mako
-      libnotify
-    waybar
-      font-awesome
-    swww
-    rofi-wayland
-    networkmanagerapplet
+      # Hyprland config
+      (waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        })
+      )
+      mako
+        libnotify
+      waybar
+        font-awesome
+      swww
+      rofi-wayland
+      networkmanagerapplet
   ];
 
   fonts.packages = with pkgs; [

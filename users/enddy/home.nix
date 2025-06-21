@@ -26,7 +26,8 @@
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # Deprecated: (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -37,15 +38,13 @@
     
     # CLI stuff
     vim
+    htop
     wget
     curl
     tree
     dos2unix
     neofetch
-
-    # Desktop
-    kdePackages.dolphin
-    thunderbird
+    stow
 
     # Development
     neovim
