@@ -47,8 +47,6 @@
     stow
 
     # Development
-    neovim
-
     go
     jdk
   ];
@@ -147,7 +145,7 @@
       {
         plugin = catppuccin;
 	extraConfig = ''
-          set -g @catppuccin_flavour "mocha"
+      G    set -g @catppuccin_flavour "mocha"
         '';
       }
     ];
@@ -205,6 +203,11 @@ bind % split-window -h -c "#{pane_current_path}"
     settings = {
       
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
   };
 
 }
