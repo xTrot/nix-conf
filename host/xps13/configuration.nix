@@ -115,6 +115,7 @@
     kdePackages.dolphin
     thunderbird
     google-chrome
+    obsidian
       # Hyprland config
       (waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
