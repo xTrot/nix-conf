@@ -49,6 +49,14 @@
     neofetch
     stow
 
+    # Neovim dependencies
+    gnumake
+    gcc
+    ripgrep
+    unzip
+    # git it is a dependency but I install somewhere else.
+    xclip
+
     # Development
     alejandra
     go
