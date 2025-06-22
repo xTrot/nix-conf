@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-set -x
 pushd ~/nix-conf
 alejandra . &> /dev/null
 git diff -U0 *.nix

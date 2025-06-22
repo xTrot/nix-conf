@@ -89,7 +89,7 @@
   users.users.enddy = {
     isNormalUser = true;
     description = "enddy";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       # neovim
       # git
@@ -102,6 +102,13 @@
     users = {
       "enddy" = import ../../users/enddy/home.nix;
     };
+  };
+
+  # Enable docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 
   # Install firefox.
