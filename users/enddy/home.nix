@@ -57,11 +57,14 @@
     # git it is a dependency but I install somewhere else.
     xclip
     lua-language-server
+    python3
+    cargo # nil dependency
 
     # Development
     alejandra
     go
     jdk
+    maven
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
