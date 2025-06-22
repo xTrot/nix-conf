@@ -145,6 +145,10 @@
     xwayland.enable = true;
   };
 
+  # Enabling dynamically linked excutables.
+  # This is needed for neovim's luals
+  programs.nix-ld.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -56,6 +56,7 @@
     unzip
     # git it is a dependency but I install somewhere else.
     xclip
+    lua-language-server
 
     # Development
     alejandra
@@ -214,5 +215,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
   };
 }
