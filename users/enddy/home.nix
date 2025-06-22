@@ -127,7 +127,6 @@
       ServerAliveInterval 60
       ServerAliveCountMax 3
       ConnectionAttempts 3
-      GSSAPIAuthentication no
 
       AddKeysToAgent yes
     '';
