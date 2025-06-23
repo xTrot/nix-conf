@@ -46,7 +46,7 @@
     tree
     dos2unix
     mlocate
-    neofetch
+    fastfetch
     stow
 
     # Neovim dependencies
@@ -158,7 +158,7 @@
       {
         plugin = catppuccin;
         extraConfig = ''
-          G    set -g @catppuccin_flavour "mocha"
+          set -g @catppuccin_flavour "mocha"
         '';
       }
     ];
