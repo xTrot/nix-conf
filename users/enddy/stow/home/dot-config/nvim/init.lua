@@ -122,6 +122,11 @@ end)
 vim.o.breakindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.wrap = false
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 0
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -809,6 +814,15 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+
+        -- Nix formatter:
+        nix = { 'alejandra' },
+
+        -- Go formatter:
+        go = { 'goimports', 'gofmt' },
+
+        -- Java formatter:
+        java = { 'google-java-formatter' },
       },
     },
   },
