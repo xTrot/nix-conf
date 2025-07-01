@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
+  # config,
   pkgs,
   inputs,
   ...
@@ -64,6 +64,30 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable Bluetooth.
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # Shows battery charge of connected devices on supported
+        # Bluetooth adapters. Defaults to 'false'.
+        Experimental = true;
+        # When enabled other devices can connect faster to us, however
+        # the tradeoff is increased power consumption. Defaults to
+        # 'false'.
+        FastConnectable = false;
+      };
+      Policy = {
+        # Enable all controllers when they are found. This includes
+        # adapters present on start as well as adapters that are plugged
+        # in later on. Defaults to 'true'.
+        AutoEnable = true;
+      };
+    };
+  };
+  services.blueman.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -90,10 +114,10 @@
     isNormalUser = true;
     description = "enddy";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      # neovim
-      # git
-    ];
+    # packages = with pkgs; [
+    # neovim
+    # git
+    # ];
   };
 
   home-manager = {
@@ -120,11 +144,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Tools
+    docker-compose
     # Desktop
     kdePackages.dolphin
     thunderbird
     google-chrome
     obsidian
+    discord
     # Hyprland config
     (
       waybar.overrideAttrs (oldAttrs: {
@@ -138,6 +165,8 @@
     swww
     rofi-wayland
     networkmanagerapplet
+    hyprlock
+    hypridle
   ];
 
   fonts.packages = with pkgs; [
@@ -165,6 +194,15 @@
   # };
 
   # List services that you want to enable:
+
+  services.openvpn.servers = {
+    myVPN = {
+      config = ''
+        config /home/enddy/.openvpn/nixXps13.ovpn
+      '';
+      updateResolvConf = true;
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

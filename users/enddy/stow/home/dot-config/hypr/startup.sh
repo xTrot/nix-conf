@@ -10,4 +10,7 @@ nm-applet --indicator &
 # bar
 waybar &
 
+hypridle &
+
 dunst
+

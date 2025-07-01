@@ -4,9 +4,21 @@ pushd ~/nix-conf
 alejandra . &> /dev/null
 git diff -U0 *.nix
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake .#xps13 &>nixos-switch.log || (
- cat nixos-switch.log | grep --color error && false)
-gen=$(nixos-rebuild list-generations | grep True)
+set +e
+set -o pipefail
+sudo nixos-rebuild switch --flake .#xps13 2>&1 | tee nixos-switch.log
+REBUILD_RTN="$?"
+set -e
+echo "$REBUILD_RTN"
+if [ ! $REBUILD_RTN -eq 0 ]; then
+    echo
+    echo
+    echo
+    echo "Error summmary:"
+    cat nixos-switch.log | grep --color error && false
+    exit 1
+fi
+gen=$(nixos-rebuild list-generations | grep True | awk '{print $1}')
 echo "Generation: $gen"
 git commit -am "$gen"
 popd

@@ -1,5 +1,5 @@
 {
-  config,
+  # config,
   pkgs,
   ...
 }: {
@@ -48,6 +48,8 @@
     mlocate
     fastfetch
     stow
+    postgresql_18
+    rclone
 
     # Neovim dependencies
     gnumake
