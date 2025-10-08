@@ -163,7 +163,7 @@
     waybar
     font-awesome
     swww
-    rofi-wayland
+    rofi
     networkmanagerapplet
     hyprlock
     hypridle
