@@ -10,7 +10,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
     inputs.home-manager.nixosModules.default
+
+    inputs.sops-nix.nixosModules.sops
   ];
 
   # Bootloader.
@@ -192,6 +195,12 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # sops-nix config
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/enddy/.config/sops/age/keys.txt";
 
   # List services that you want to enable:
 
