@@ -149,6 +149,7 @@
   environment.systemPackages = with pkgs; [
     # Tools
     docker-compose
+    sops
     # Desktop
     kdePackages.dolphin
     thunderbird
