@@ -2,6 +2,7 @@
 set -e
 pushd ~/nix-conf
 alejandra . &> /dev/null
+git add .
 git diff -U0 *.nix
 echo "NixOS Rebuilding..."
 set +e

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  # config,
+  config,
   pkgs,
   inputs,
   ...
@@ -10,7 +10,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
     inputs.home-manager.nixosModules.default
+
+    inputs.sops-nix.nixosModules.sops
   ];
 
   # Bootloader.
@@ -146,6 +149,7 @@
   environment.systemPackages = with pkgs; [
     # Tools
     docker-compose
+    sops
     # Desktop
     kdePackages.dolphin
     thunderbird
@@ -192,6 +196,15 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # sops-nix config
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/enddy/.config/sops/age/keys.txt";
+
+  sops.secrets.example_key = {};
+  sops.secrets.hello = {};
 
   # List services that you want to enable:
 

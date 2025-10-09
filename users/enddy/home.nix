@@ -143,7 +143,7 @@
     enable = true;
     enableBashIntegration = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "Catppuccin Mocha";
     };
   };
 
