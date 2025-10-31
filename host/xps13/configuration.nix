@@ -154,6 +154,7 @@
     kdePackages.dolphin
     thunderbird
     google-chrome
+    pgadmin4-desktopmode
     obsidian
     discord
     # Hyprland config
