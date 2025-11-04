@@ -156,6 +156,7 @@
     plugins = with pkgs.tmuxPlugins; [
       sensible
       {plugin = vim-tmux-navigator;}
+      {plugin = resurrect;}
       {plugin = yank;}
       {
         plugin = catppuccin;
