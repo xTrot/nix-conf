@@ -266,6 +266,29 @@ require('lazy').setup({
   -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   --
 
+  -- Git Plugin
+  {
+    'NeogitOrg/neogit',
+    lazy = true,
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed.
+      'nvim-telescope/telescope.nvim', -- optional
+      'ibhagwan/fzf-lua', -- optional
+      'nvim-mini/mini.pick', -- optional
+      'folke/snacks.nvim', -- optional
+    },
+    cmd = 'Neogit',
+    keys = {
+      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' },
+    },
+  },
+
+  -- -- Git Plugin
+  -- 'tpope/vim-fugitive',
+
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
   --    {
@@ -291,6 +314,32 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      -- numhl = true,
+      -- linehl = false,
+      -- word_diff = false,
+      -- watch_gitdir = {
+      --   interval = 1000,
+      --   follow_files = true,
+      -- },
+      -- attach_to_buffers = true,
+      -- current_line_blame = false,
+      -- current_line_blame_opts = {
+      --   virt_text = true,
+      --   virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      --   delay = 1000,
+      --   ignore_whitespace = false,
+      -- },
+      -- sign_priority = 6,
+      -- update_debounce = 100,
+      -- status_formatter = nil, -- Use default
+      -- max_file_length = 40000,
+      -- preview_config = {
+      --   border = 'single',
+      --   style = 'minimal',
+      --   relative = 'cursor',
+      --   row = 0,
+      --   col = 1,
+      -- },
     },
   },
 
@@ -434,6 +483,11 @@ require('lazy').setup({
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
 
+      -- -- Git Keymap
+      -- vim.keymap.set('n', '<leader>gs', ':Gstatus<CR>', { desc = 'Git Status' })
+      -- vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { desc = 'Git Commit' })
+      -- vim.keymap.set('n', '<leader>gb', ':Gblame<CR>', { desc = 'Git Blame' })
+      --
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
