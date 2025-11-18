@@ -50,6 +50,7 @@
     stow
     postgresql_18
     rclone
+    lazygit
 
     # Neovim dependencies
     gnumake
