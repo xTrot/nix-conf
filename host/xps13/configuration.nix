@@ -157,6 +157,7 @@
     pgadmin4-desktopmode
     obsidian
     discord
+    vscode
     # Hyprland config
     (
       waybar.overrideAttrs (oldAttrs: {
