@@ -158,6 +158,7 @@
     obsidian
     discord
     vscode
+    gnome-calculator
     # Hyprland config
     (
       waybar.overrideAttrs (oldAttrs: {
