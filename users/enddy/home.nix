@@ -51,6 +51,7 @@
     postgresql_18
     rclone
     lazygit
+    lazydocker
 
     # Neovim dependencies
     gnumake
