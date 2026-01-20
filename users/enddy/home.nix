@@ -52,6 +52,7 @@
     rclone
     lazygit
     lazydocker
+    opencode
 
     # Neovim dependencies
     gnumake
