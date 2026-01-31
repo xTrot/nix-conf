@@ -20,8 +20,10 @@
     nixpkgs,
     ...
   } @ inputs: {
+
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
+
     nixosConfigurations.xps13 = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -29,5 +31,14 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+
+    nixosConfigurations.performus = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./host/performus/configuration.nix
+        inputs.home-manager.nixosModules.default
+      ];
+    };
+
   };
 }
