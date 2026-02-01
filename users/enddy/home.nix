@@ -41,6 +41,7 @@
     # CLI stuff
     vim
     htop
+    lsof
     wget
     curl
     tree
