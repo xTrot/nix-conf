@@ -4,10 +4,11 @@ pushd ~/nix-conf
 alejandra . &> /dev/null
 git add .
 git diff -U0 *.nix
-echo "NixOS Rebuilding..."
+HOST=$(hostname)
+echo "NixOS Rebuilding host:$HOST..."
 set +e
 set -o pipefail
-sudo nixos-rebuild switch --flake .#xps13 2>&1 | tee nixos-switch.log
+sudo nixos-rebuild switch --flake .#$HOST 2>&1 | tee nixos-switch.log
 REBUILD_RTN="$?"
 set -e
 echo "$REBUILD_RTN"

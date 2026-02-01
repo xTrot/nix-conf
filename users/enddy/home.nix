@@ -64,10 +64,14 @@
     lua-language-server
     python3
     cargo # nil dependency
+    luarocks
+    fd
+    lua5_1
 
     # Development
     alejandra
     go
+    gotools
     jdk
     maven
   ];
@@ -228,4 +232,8 @@
     vimAlias = true;
     vimdiffAlias = true;
   };
+
+  programs.neovim.plugins = [
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+  ];
 }
