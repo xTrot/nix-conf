@@ -2,7 +2,7 @@
 
 # Wallpaper
 swww init &
-swww img ~/Wallpapers/gruvbox-mountain-village.png &
+swww img ~/Wallpapers/retroCity1.png &
 
 # network
 nm-applet --indicator &
