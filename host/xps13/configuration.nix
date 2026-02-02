@@ -91,6 +91,9 @@
   };
   services.blueman.enable = true;
 
+  # Enable power monitoring.
+  services.upower.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
