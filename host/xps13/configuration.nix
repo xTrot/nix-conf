@@ -215,15 +215,6 @@
   # List services that you want to enable:
   networking.wg-quick.interfaces.wg0.configFile = "/home/enddy/.config/wireguard/xps13.conf";
 
-  services.openvpn.servers = {
-    myVPN = {
-      config = ''
-        config /home/enddy/.openvpn/nixXps13.ovpn
-      '';
-      updateResolvConf = true;
-    };
-  };
-
   # home row mods
   services.kanata = {
     enable = true;
