@@ -213,6 +213,7 @@
   sops.secrets.hello = {};
 
   # List services that you want to enable:
+  networking.wg-quick.interfaces.wg0.configFile = "/home/enddy/.config/wireguard/xps13.conf";
 
   services.openvpn.servers = {
     myVPN = {
