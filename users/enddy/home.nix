@@ -40,6 +40,7 @@
 
     # CLI stuff
     vim
+    usbutils
     htop
     lsof
     wget
