@@ -16,6 +16,8 @@
   flake.nixosConfigurations.performus = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.performusHw
+
+      self.nixosModules.gaming
     ];
   };
 
