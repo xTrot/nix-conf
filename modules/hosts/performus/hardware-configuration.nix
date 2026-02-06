@@ -29,6 +29,22 @@
       options = ["fmask=0077" "dmask=0077"];
     };
 
+    # Vault RAID 10 Array
+    boot.swraid.enable = true;
+    boot.swraid.mdadmConf = "MAILADDR root@localhost";
+    fileSystems."/mnt/vault" = {
+      device = "/dev/disk/by-uuid/859f8fb1-ab95-4c0a-8019-313cf7544aea";
+      fsType = "ext4";
+      options = ["defaults" "nofail"];
+    };
+
+    # Secondary NVME
+    fileSystems."/mnt/secondary" = {
+      device = "/dev/disk/by-uuid/eaeabb15-d6a2-4897-9785-762ce268dbfe";
+      fsType = "ext4";
+      options = ["defaults" "nofail"];
+    };
+
     swapDevices = [
       {device = "/dev/disk/by-uuid/05a391c0-d721-405e-8b65-7e07e155d2ec";}
     ];
