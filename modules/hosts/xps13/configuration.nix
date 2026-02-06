@@ -8,6 +8,10 @@
 }: {
   # Declaring the config for the performus system.
 
+  imports = [
+    inputs.home-manager.flakeModules.home-manager
+  ];
+
   # Importing hardware config
   flake.nixosConfigurations.xps13 = inputs.nixpkgs.lib.nixosSystem {
     modules = [
@@ -16,10 +20,6 @@
   };
 
   flake.nixosModules.xps13Hw = {pkgs, ...}: {
-    imports = [
-      inputs.home-manager.flakeModules.home-manager
-    ];
-
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

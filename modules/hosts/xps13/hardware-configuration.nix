@@ -2,7 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  flake.nixosModules.performusHw = {
+  flake.nixosModules.xps13Hw = {
     config,
     lib,
     pkgs,
