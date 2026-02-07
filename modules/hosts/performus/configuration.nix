@@ -16,12 +16,13 @@
   flake.nixosConfigurations.performus = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.performusHw
-
-      self.nixosModules.gaming
     ];
   };
 
   flake.nixosModules.performusHw = {pkgs, ...}: {
+    imports = [
+      self.nixosModules.gaming
+    ];
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
