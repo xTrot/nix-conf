@@ -125,8 +125,8 @@
         #  thunderbird
       ];
       openssh.authorizedKeys.keys = [
-        # Self
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC9VMEq7K501n9RDuc449Z2RYipZppXRpC79ImEV4VGsFy7LejlQiTIN0jSErQqPH1SOlltgeDBlnpMpjcqvk+5lSf98MGlx27czQOrgvLXsCzwFN21zUIrnUOPQrEJ6d7TQE5mjRIQzDDLwVXIWthpl6X0Je8KF80UThpt1Jx8WJoGwaiLJPjxUWVoLHWDt9c/IqHaTjCYQlJP3H2quYNtC30ShTMBgpCV4P/P8/skODG+GDVht8MpGRQ+ebmZ99KVkx4NkLTw7aIqQg2HqkIqAWzWHV4FKc0S0ko64HIip1JElnGYwtyOa/kzadFKDOgV6NrZ+7F5WkPp+sHjhumW0IyEUEqPENWDcFhgak3CbByIIrJwVF6TrKEKEMyNdiUpWAWyIgP79NYs09qc0QdGnkhYGlfuiRCbBeRK/hp3To263grVDR9Fjh4jY/0qu8v6T2nPdie4ijFZ/DWZU8pW+lMGJXBWxh8Or6e+uIRsJD5fzuxRkry3+5+/RTbhiAR1hop0GuatzkPncq/KQ7gBV6npu9TdYWjiBu7AEnIqKe1DK998Q37PcoMjvfSPm9Il4Opxv2azRhnbeTYbqBGL1CvM/3hxN5Z+C9mlWoZnrQQ+xo9JhkbeziW7Ntjt8WfE4fOzbDzyxoV0ulnDqpSlrDRRReDRIYTkF6IS1NnNkQ== enddyygf93@gmail.com"
+        # performus
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDuE+pkbyRNO/F4SMUp/ULgRkqnk2B+aGV00p/Ip6S3 enddyygf93@live.com"
         # xps13
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOC5Dti5TAo0dfp++qWXmyNvTZcPhlixNsIB/GFVqKt+ enddyygf93@live.com"
       ];
