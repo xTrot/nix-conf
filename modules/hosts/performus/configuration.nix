@@ -22,7 +22,12 @@
   flake.nixosModules.performusHw = {pkgs, ...}: {
     imports = [
       self.nixosModules.gaming
+
+      # disko
+      inputs.disko.nixosModules.disko
+      self.diskoConfigurations.performus
     ];
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -115,6 +120,8 @@
     # services.xserver.libinput.enable = true;
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
+
+    security.sudo.wheelNeedsPassword = false;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.enddy = {

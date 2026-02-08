@@ -54,107 +54,94 @@
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/mnt/secondary/";
+                mountpoint = "/mnt/secondary";
               };
             };
           };
         };
       };
-      hdd0 = {
+      disk.hdd0 = {
         device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN1R4MA";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            mdadm = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "tank";
+                type = "mdraid";
+                name = "raid10";
               };
             };
           };
         };
       };
-      hdd1 = {
+      disk.hdd1 = {
         device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN31YWZ";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            mdadm = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "tank";
+                type = "mdraid";
+                name = "raid10";
               };
             };
           };
         };
       };
-      hdd2 = {
+      disk.hdd2 = {
         device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN39NJK";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            mdadm = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "tank";
+                type = "mdraid";
+                name = "raid10";
               };
             };
           };
         };
       };
-      hdd3 = {
+      disk.hdd3 = {
         device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN3A516";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            mdadm = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "tank";
+                type = "mdraid";
+                name = "raid10";
               };
             };
           };
         };
       };
-    };
-    zpool = {
-      zroot = {
-        type = "zpool";
-        mode = "mirror";
-        rootFsOptions = {
-          compression = "lz4";
-          "com.sun:auto-snapshot" = "true";
-        };
-        datasets = {
-          vault = {
-            type = "filesystem";
-            mountpoint = "/mnt/vault/";
+      mdadm = {
+        raid10 = {
+          type = "mdadm";
+          level = 10;
+          content = {
+            type = "gpt";
+            partitions = {
+              primary = {
+                size = "100%";
+                content = {
+                  type = "filesystem";
+                  format = "ext4";
+                  mountpoint = "/mnt/vault";
+                };
+              };
+            };
           };
         };
-      };
-      tank = {
-        type = "zpool";
-        topology = {
-          vdev = [
-            {
-              mode = "mirror";
-              members = ["hdd0-data" "hdd1-data"];
-            }
-            {
-              mode = "mirror";
-              members = ["hdd2-data" "hdd3-data"];
-            }
-          ];
-        };
-        mountpoint = "/mnt/data";
       };
     };
   };

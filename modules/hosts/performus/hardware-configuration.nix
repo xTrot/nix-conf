@@ -18,36 +18,7 @@
     boot.kernelModules = ["kvm-intel"];
     boot.extraModulePackages = [];
 
-    fileSystems."/" = {
-      device = "/dev/disk/by-uuid/07d8d418-a4b3-48e2-a71e-7ad99147883b";
-      fsType = "ext4";
-    };
-
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/1AE4-B3E8";
-      fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
-    };
-
-    # Vault RAID 10 Array
-    boot.swraid.enable = true;
     boot.swraid.mdadmConf = "MAILADDR root@localhost";
-    fileSystems."/mnt/vault" = {
-      device = "/dev/disk/by-uuid/859f8fb1-ab95-4c0a-8019-313cf7544aea";
-      fsType = "ext4";
-      options = ["defaults" "nofail"];
-    };
-
-    # Secondary NVME
-    fileSystems."/mnt/secondary" = {
-      device = "/dev/disk/by-uuid/eaeabb15-d6a2-4897-9785-762ce268dbfe";
-      fsType = "ext4";
-      options = ["defaults" "nofail"];
-    };
-
-    swapDevices = [
-      {device = "/dev/disk/by-uuid/981a0c5c-b0d8-4322-9331-154cc3cead58";}
-    ];
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
