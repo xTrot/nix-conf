@@ -8,18 +8,19 @@
 }: {
   # Declaring the config for the performus system.
 
-  imports = [
-    inputs.home-manager.flakeModules.home-manager
-  ];
-
   # Importing hardware config
   flake.nixosConfigurations.xps13 = inputs.nixpkgs.lib.nixosSystem {
+    specialArgs = {inherit inputs;};
     modules = [
       self.nixosModules.xps13Hw
+      inputs.home-manager.nixosModules.default
     ];
   };
 
   flake.nixosModules.xps13Hw = {pkgs, ...}: {
+    modules = [
+      self.modules.nixos.enddy
+    ];
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -118,17 +119,6 @@
     # services.xserver.libinput.enable = true;
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.enddy = {
-      isNormalUser = true;
-      description = "enddy";
-      extraGroups = ["networkmanager" "wheel" "docker"];
-      # packages = with pkgs; [
-      # neovim
-      # git
-      # ];
-    };
 
     # Enable docker
     virtualisation.docker.enable = true;

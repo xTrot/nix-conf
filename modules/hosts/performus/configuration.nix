@@ -8,20 +8,20 @@
 }: {
   # Declaring the config for the performus system.
 
-  imports = [
-    inputs.home-manager.flakeModules.home-manager
-  ];
-
   # Importing hardware config
   flake.nixosConfigurations.performus = inputs.nixpkgs.lib.nixosSystem {
+    specialArgs = {inherit inputs;};
     modules = [
       self.nixosModules.performusHw
+      inputs.home-manager.nixosModules.default
     ];
   };
 
   flake.nixosModules.performusHw = {pkgs, ...}: {
     imports = [
       self.nixosModules.gaming
+
+      self.modules.nixos.enddy
 
       # disko
       inputs.disko.nixosModules.disko
@@ -122,22 +122,6 @@
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
     security.sudo.wheelNeedsPassword = false;
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.enddy = {
-      isNormalUser = true;
-      description = "enddy";
-      extraGroups = ["networkmanager" "wheel"];
-      packages = with pkgs; [
-        #  thunderbird
-      ];
-      openssh.authorizedKeys.keys = [
-        # performus
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDuE+pkbyRNO/F4SMUp/ULgRkqnk2B+aGV00p/Ip6S3 enddyygf93@live.com"
-        # xps13
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOC5Dti5TAo0dfp++qWXmyNvTZcPhlixNsIB/GFVqKt+ enddyygf93@live.com"
-      ];
-    };
 
     # Enable docker
     virtualisation.docker.enable = true;
