@@ -18,9 +18,10 @@
   };
 
   flake.nixosModules.xps13Hw = {pkgs, ...}: {
-    modules = [
+    imports = [
       self.modules.nixos.enddy
     ];
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
