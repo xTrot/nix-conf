@@ -67,6 +67,8 @@ in {
       lazydocker
       opencode
       nix-inspect
+      bat
+      tealdeer
 
       # Neovim dependencies
       gnumake
