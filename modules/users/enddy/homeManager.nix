@@ -68,6 +68,7 @@ in {
       opencode
       nix-inspect
       bat
+      bat-extras.batman
       tealdeer
 
       # Neovim dependencies
