@@ -4,7 +4,7 @@
     lib,
     ...
   }: {
-    # Keyboar module
+    # Keyboard module
 
     # home row mods
     services.kanata = {
