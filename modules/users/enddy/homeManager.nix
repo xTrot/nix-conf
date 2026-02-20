@@ -127,6 +127,7 @@ in {
     #
     home.sessionVariables = {
       EDITOR = "nvim";
+      MANPAGER = "nvim +Man!";
 
       # Hint electron apps to use wayland.
       NIXOS_OZONE_WL = "1";
