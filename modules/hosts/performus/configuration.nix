@@ -20,6 +20,7 @@
   flake.nixosModules.performusHw = {pkgs, ...}: {
     imports = [
       self.nixosModules.gaming
+      self.nixosModules.keyboard
 
       self.modules.nixos.enddy
 
