@@ -24,9 +24,6 @@
 
     networking.hostName = "xps13"; # Define your hostname.
 
-    # Enable power monitoring.
-    services.upower.enable = true;
-
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
@@ -48,6 +45,7 @@
     ];
 
     # Hyprland config
+    services.xserver.enable = true;
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     programs.hyprland = {
@@ -56,6 +54,9 @@
     };
 
     # List services that you want to enable:
+
+    # Enable power monitoring.
+    services.upower.enable = true;
 
     # Wireguard VPN
     networking.wg-quick.interfaces.wg0.configFile = "/home/enddy/.config/wireguard/xps13.conf";
