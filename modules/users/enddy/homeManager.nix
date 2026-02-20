@@ -70,6 +70,7 @@ in {
       bat
       bat-extras.batman
       tealdeer
+      wikiman
 
       # Neovim dependencies
       gnumake
