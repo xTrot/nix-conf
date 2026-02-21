@@ -17,6 +17,7 @@
   flake.nixosModules.xps13Hw = {pkgs, ...}: {
     imports = [
       self.nixosModules.systemCommon
+      self.nixosModules.desktop
       self.nixosModules.keyboard
 
       self.modules.nixos.enddy

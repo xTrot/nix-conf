@@ -97,15 +97,6 @@
       # Tools
       docker-compose
       pciutils
-      # Desktop
-      kdePackages.dolphin
-      thunderbird
-      google-chrome
-      pgadmin4-desktopmode
-      obsidian
-      discord
-      vscode
-      gnome-calculator
     ];
 
     fonts.packages = with pkgs; [

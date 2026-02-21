@@ -17,6 +17,7 @@
   flake.nixosModules.performusHw = {pkgs, ...}: {
     imports = [
       self.nixosModules.systemCommon
+      self.nixosModules.desktop
       self.nixosModules.gaming
       self.nixosModules.keyboard
 
