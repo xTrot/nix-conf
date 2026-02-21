@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rm -rf ~/.config/hypr ~/.config/nvim ~/.config/waybar ~/.config/rofi 
+stow --dotfiles -v -d /home/enddy/nix-conf/modules/users/enddy/stow/ -t /home/enddy/ home
