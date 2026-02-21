@@ -96,6 +96,7 @@
     environment.systemPackages = with pkgs; [
       # Tools
       docker-compose
+      pciutils
       # Desktop
       kdePackages.dolphin
       thunderbird
