@@ -18,6 +18,7 @@
     imports = [
       self.nixosModules.systemCommon
       self.nixosModules.desktop
+      self.nixosModules.av
       self.nixosModules.gaming
       self.nixosModules.keyboard
 
