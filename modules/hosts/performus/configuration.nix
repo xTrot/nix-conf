@@ -14,7 +14,7 @@
     ];
   };
 
-  flake.nixosModules.performusHw = {pkgs, ...}: {
+  flake.nixosModules.performusHw = {...}: {
     imports = [
       self.nixosModules.systemCommon
       self.nixosModules.desktop

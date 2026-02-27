@@ -1,9 +1,5 @@
 {
-  flake.nixosModules.keyboard = {
-    pkgs,
-    lib,
-    ...
-  }: {
+  flake.nixosModules.keyboard = {...}: {
     # Keyboard module
 
     # home row mods

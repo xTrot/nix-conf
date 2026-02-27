@@ -1,12 +1,7 @@
 {inputs, ...}: let
   username = "enddy";
 in {
-  flake.modules.nixos."${username}" = {
-    lib,
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.modules.nixos."${username}" = {...}: {
     users.users."${username}" = {
       isNormalUser = true;
       description = "${username}";
