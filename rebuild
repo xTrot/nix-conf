@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
+
 set -e
-pushd ~/nix-conf
+
 alejandra . &> /dev/null
-git add .
 git diff -U0 *.nix
+git add .
+
 HOST=$(hostname)
 echo "NixOS Rebuilding host:$HOST..."
+
 set +e
 set -o pipefail
 sudo nixos-rebuild switch --flake .#$HOST 2>&1 | tee nixos-switch.log
@@ -20,7 +23,8 @@ if [ ! $REBUILD_RTN -eq 0 ]; then
     cat nixos-switch.log | grep --color error && false
     exit 1
 fi
+
 gen=$(nixos-rebuild list-generations | grep True | awk '{print $1}')
-echo "Generation: $gen"
-git commit -am "$gen"
-popd
+commitMsg="Generation: $gen"
+echo $commitMsg
+git commit -am $commitMsg
