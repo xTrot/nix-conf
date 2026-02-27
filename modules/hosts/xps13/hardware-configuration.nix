@@ -2,7 +2,6 @@
   flake.nixosModules.xps13Hw = {
     config,
     lib,
-    pkgs,
     modulesPath,
     ...
   }: {

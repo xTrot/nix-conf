@@ -71,6 +71,7 @@ in {
       bat-extras.batman
       tealdeer
       wikiman
+      nixd
 
       # Neovim dependencies
       gnumake
@@ -254,6 +255,7 @@ in {
 
     programs.neovim.plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.blink-cmp
     ];
   };
 }

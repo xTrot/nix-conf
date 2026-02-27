@@ -1,7 +1,7 @@
 {
   flake.nixosModules.systemCommon = {
     pkgs,
-    lib,
+    inputs,
     ...
   }: {
     # System common module
@@ -82,10 +82,12 @@
     security.sudo.wheelNeedsPassword = false;
 
     # Enable docker
-    virtualisation.docker.enable = true;
-    virtualisation.docker.rootless = {
+    virtualisation.docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
 
     # Allow unfree packages
@@ -102,6 +104,9 @@
     fonts.packages = with pkgs; [
       nerd-fonts.fira-code
     ];
+
+    # Used by nixd for autocompletion.
+    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     # Enabling dynamically linked excutables.
     # This is needed for neovim's luals

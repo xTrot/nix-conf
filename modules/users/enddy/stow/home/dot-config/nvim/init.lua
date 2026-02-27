@@ -884,7 +884,7 @@ require('lazy').setup({
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
-    version = '1.*',
+    version = '*',
     dependencies = {
       -- Snippet Engine
       {
@@ -973,7 +973,7 @@ require('lazy').setup({
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'rust' },
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },
@@ -1115,6 +1115,8 @@ require('lazy').setup({
     },
   },
 })
+
+vim.lsp.enable 'nixd'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
