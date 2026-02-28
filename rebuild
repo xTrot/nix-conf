@@ -26,5 +26,5 @@ fi
 
 gen=$(nixos-rebuild list-generations | grep True | awk '{print $1}')
 commitMsg="Generation: $gen"
-echo $commitMsg
-git commit -am $commitMsg
+echo "$commitMsg"
+git commit -am "$commitMsg"

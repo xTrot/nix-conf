@@ -66,12 +66,17 @@ in {
       lazygit
       lazydocker
       opencode
-      nix-inspect
       bat
       bat-extras.batman
       tealdeer
       wikiman
+
+      # Nix
       nixd
+      nix-inspect
+      nh
+      nvd
+      nix-output-monitor
 
       # Neovim dependencies
       gnumake
