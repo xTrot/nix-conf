@@ -99,6 +99,7 @@
       # Tools
       docker-compose
       pciutils
+      woeusb
     ];
 
     fonts.packages = with pkgs; [
