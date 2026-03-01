@@ -42,24 +42,25 @@
           };
         };
       };
-      disk.nvme1 = {
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_PRO_512GB_S463NF0KA32862D";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            root = {
-              name = "secondary";
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/mnt/secondary";
-              };
-            };
-          };
-        };
-      };
+      # Currently Disabled for windows dual boot
+      # disk.nvme1 = {
+      #   device = "/dev/disk/by-id/nvme-Samsung_SSD_970_PRO_512GB_S463NF0KA32862D";
+      #   type = "disk";
+      #   content = {
+      #     type = "gpt";
+      #     partitions = {
+      #       root = {
+      #         name = "secondary";
+      #         size = "100%";
+      #         content = {
+      #           type = "filesystem";
+      #           format = "ext4";
+      #           mountpoint = "/mnt/secondary";
+      #         };
+      #       };
+      #     };
+      #   };
+      # };
       disk.hdd0 = {
         device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN1R4MA";
         type = "disk";
