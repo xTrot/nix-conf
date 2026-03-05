@@ -11,18 +11,19 @@
     modules = [
       self.nixosModules.wslPerformusHw
       inputs.home-manager.nixosModules.default
+      inputs.nixos-wsl.nixosModules.default
     ];
   };
 
-  flake.nixosModules.wslPerformusHw = {...}: {
+  flake.nixosModules.wslPerformusHw = {lib, ...}: {
     imports = [
       self.nixosModules.systemCommon
 
       self.modules.nixos.enddy
-
-      # disko
-      inputs.disko.nixosModules.disko
     ];
+
+    wsl.enable = true;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     networking.hostName = "wslPerformus"; # Define your hostname.
 
