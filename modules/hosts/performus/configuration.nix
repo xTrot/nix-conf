@@ -20,6 +20,7 @@
       self.nixosModules.desktop
       self.nixosModules.av
       self.nixosModules.gaming
+      self.nixosModules.playback
       self.nixosModules.keyboard
 
       self.modules.nixos.enddy
