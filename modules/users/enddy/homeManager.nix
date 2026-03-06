@@ -70,6 +70,7 @@ in {
       bat-extras.batman
       tealdeer
       wikiman
+      file
 
       # Nix
       nixd
