@@ -19,6 +19,7 @@
       self.nixosModules.systemCommon
       self.nixosModules.desktop
       self.nixosModules.keyboard
+      self.nixosModules.playback
 
       self.modules.nixos.enddy
 
