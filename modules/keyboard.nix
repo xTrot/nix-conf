@@ -8,7 +8,12 @@
       keyboards = {
         internalKeyboard = {
           devices = [
+            # xps13 keyboards
             "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+            "/dev/input/by-path/pci-0000:00:14.0-usb-0:8.3.3.4:1.1-event-kbd"
+            "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:8.3.3.4:1.1-event-kbd"
+
+            # performus keyboard
             "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:7.4:1.1-event-kbd"
           ];
           extraDefCfg = "process-unmapped-keys yes";
