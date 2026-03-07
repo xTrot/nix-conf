@@ -3,7 +3,7 @@
 set -e
 
 alejandra . &> /dev/null
-git diff -U0 *.nix
+git diff
 git add .
 
 HOST=$(hostname)
