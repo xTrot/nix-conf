@@ -12,6 +12,7 @@
       self.nixosModules.wslPerformusHw
       inputs.home-manager.nixosModules.default
       inputs.nixos-wsl.nixosModules.default
+      inputs.nix-index-database.nixosModules.default
     ];
   };
 

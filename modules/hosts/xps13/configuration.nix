@@ -11,6 +11,7 @@
     modules = [
       self.nixosModules.xps13Hw
       inputs.home-manager.nixosModules.default
+      inputs.nix-index-database.nixosModules.default
     ];
   };
 
