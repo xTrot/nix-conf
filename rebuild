@@ -3,7 +3,7 @@
 set -e
 
 alejandra . &> /dev/null
-git diff
+git --no-pager diff
 git add .
 
 HOST=$(hostname)
@@ -27,4 +27,4 @@ fi
 gen=$(nixos-rebuild list-generations | grep True | awk '{print $1}')
 commitMsg="Generation: $gen"
 echo "$commitMsg"
-git commit -am "$commitMsg"
+git commit -am "$commitMsg" || true
