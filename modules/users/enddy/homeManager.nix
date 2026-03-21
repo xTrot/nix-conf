@@ -63,14 +63,16 @@ in {
       stow
       postgresql_18
       rclone
-      lazygit
-      lazydocker
       opencode
       bat
       bat-extras.batman
       tealdeer
       wikiman
       file
+      # TUIs
+      lazygit
+      lazydocker
+      television
 
       # Nix
       nixd
