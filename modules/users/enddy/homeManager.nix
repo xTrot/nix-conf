@@ -221,6 +221,11 @@ in {
         set -g prefix C-Space
         bind C-Space send-prefix
 
+        # Do not change window title
+        set -wg automatic-rename off
+        set -wg window-status-current-format "#[fg=#11111b,bg=#{@thm_mauve}] #I #[fg=#cdd6f4,bg=#{@thm_surface_1}] #W "
+        set -wg window-status-format "#[fg=#11111b,bg=#{@thm_overlay_2}] #I #[fg=#cdd6f4,bg=#{@thm_surface_1}] #W "
+
         # Vim style pane selection
         bind h select-pane -L
         bind j select-pane -D
