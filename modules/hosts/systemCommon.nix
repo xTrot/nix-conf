@@ -98,6 +98,8 @@
       woeusb
     ];
 
+    environment.pathsToLink = ["/share/bash-completion"];
+
     fonts.packages = with pkgs; [
       nerd-fonts.fira-code
     ];
