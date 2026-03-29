@@ -67,12 +67,15 @@ in {
       bat
       bat-extras.batman
       tealdeer
-      wikiman
       file
       # TUIs
       lazygit
       lazydocker
       television
+
+      # Offline Wiki access.
+      kiwix
+      kiwix-tools
 
       # Nix
       nixd
