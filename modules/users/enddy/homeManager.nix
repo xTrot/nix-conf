@@ -54,8 +54,11 @@ in {
       usbutils
       htop
       lsof
+      inetutils
+      dig
       wget
       curl
+      websocat
       tree
       dos2unix
       mlocate
