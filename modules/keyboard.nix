@@ -14,7 +14,7 @@
             "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:8.3.3.4:1.1-event-kbd"
 
             # performus keyboard
-            "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:7.4:1.1-event-kbd"
+            "/dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-kbd"
           ];
           extraDefCfg = "process-unmapped-keys yes";
           config = ''
