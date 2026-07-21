@@ -36,6 +36,9 @@
     # Enable networking
     networking.networkmanager.enable = true;
 
+    networking.interfaces.eno2.wakeOnLan.enable = true;
+    networking.firewall.allowedUDPPorts = [9];
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
