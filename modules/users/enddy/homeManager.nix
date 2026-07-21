@@ -55,6 +55,7 @@ in {
       htop
       lsof
       inetutils
+      wakeonlan
       dig
       wget
       curl
