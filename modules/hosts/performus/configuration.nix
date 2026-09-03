@@ -39,12 +39,33 @@
     networking.interfaces.eno2.wakeOnLan.enable = true;
     networking.firewall.allowedUDPPorts = [9];
 
+    hardware.uinput.enable = true;
+    services.sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
+    services.xserver.displayManager.autoLogin.enable = true;
+    services.xserver.displayManager.autoLogin.user = "enddy";
 
     # Enable the GNOME Desktop Environment.
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
+
+    systemd.user.services.lock-on-login = {
+      description = "Lock screen immediately after automatic login";
+      wantedBy = ["gnome-session.target"];
+      after = ["gnome-session.target"];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStartPre = "${inputs.nixpkgs.legacyPackages."x86_64-linux".coreutils}/bin/sleep 0.3";
+        ExecStart = "${inputs.nixpkgs.legacyPackages."x86_64-linux".systemd}/bin/loginctl lock-session";
+      };
+    };
 
     # Configure keymap in X11
     services.xserver.xkb = {
