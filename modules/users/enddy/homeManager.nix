@@ -51,6 +51,7 @@ in {
 
       # CLI stuff
       vim
+      neovim
       usbutils
       htop
       lsof
@@ -95,6 +96,7 @@ in {
       unzip
       # git it is a dependency but I install somewhere else.
       xclip
+      wl-clipboard
       lua-language-server
       python3
       cargo # nil dependency
@@ -143,10 +145,17 @@ in {
     #
     home.sessionVariables = {
       EDITOR = "nvim";
+      VISUAL = "nvim";
       MANPAGER = "nvim +Man!";
 
       # Hint electron apps to use wayland.
       NIXOS_OZONE_WL = "1";
+    };
+
+    home.shellAliases = {
+      vi = "nvim";
+      vim = "nvim";
+      vimdiff = "nvim -d";
     };
 
     # Let Home Manager install and manage itself.
@@ -277,14 +286,6 @@ in {
       enableBashIntegration = true;
       settings = {
       };
-    };
-
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
     };
 
     programs.neovim.plugins = [
