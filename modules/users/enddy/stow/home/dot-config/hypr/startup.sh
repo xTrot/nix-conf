@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Wallpaper
-nohup sh swww-daemon &
+nohup sh awww-daemon &
 WALL_DIR="/home/enddy/Wallpaper"
 random_wallpaper="$(find $WALL_DIR -type f -print0 | shuf -z -n 1 | xargs -0 echo)"
 # echo "WALL_DIR: $WALL_DIR" > ~/chosen_wall.txt
