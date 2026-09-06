@@ -10,16 +10,16 @@
     programs.appimage.binfmt = true;
 
     environment.systemPackages = let
-      version = "1.8.0";
+      version = "1.10.0";
       name = "Playback";
       pname = "playback";
 
       src = pkgs.fetchurl {
         url = "https://releases.epilogue.co/desktop/playback/${version}/release/linux/Playback.AppImage";
-        hash = "sha256-hnRUoKrYrtwXe+qBeEYhpzwtV0M/p6pM7OL1dwt4YDs=";
+        hash = "sha256-kXoZOiJKEW8dCvmDIxSC20SA0O90JLAHtSvDO8e0IOc=";
       };
 
-      appimageContents = pkgs.appimageTools.extractType2 {inherit pname version src;};
+      appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
     in [
       (pkgs.appimageTools.wrapType2 rec {
         inherit name pname version src appimageContents;
