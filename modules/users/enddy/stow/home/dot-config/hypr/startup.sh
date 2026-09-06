@@ -9,7 +9,7 @@ random_wallpaper="$(find $WALL_DIR -type f -print0 | shuf -z -n 1 | xargs -0 ech
 # echo "shuf: $(find $WALL_DIR -type f -print0 | shuf -z -n 1)" >> ~/chosen_wall.txt
 echo "Chosen: $random_wallpaper" > ~/chosen_wall.txt
 sleep 1
-swww img $random_wallpaper
+awww img $random_wallpaper
 
 # network
 nm-applet --indicator &

@@ -1,2 +1,4 @@
 
-@theme "/nix/store/r6by463p9aqp6rk0rd23ljzwjrxs1dzd-rofi-2.0.0/share/rofi/themes/material.rasi"
+//@theme "/nix/store/r6by463p9aqp6rk0rd23ljzwjrxs1dzd-rofi-2.0.0/share/rofi/themes/material.rasi"
+
+@theme "/nix/store/j7mrs5r0bywp3rkbq7gkr7lkgy31hsl1-rofi-2.0.0/share/rofi/themes/material.rasi"

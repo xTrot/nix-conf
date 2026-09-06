@@ -1,6 +1,7 @@
 {
   inputs,
   self,
+  lib,
   ...
 }: {
   # Declaring the config for the performus system.
@@ -44,7 +45,7 @@
       libnotify
       waybar
       font-awesome
-      swww
+      awww
       rofi
       networkmanagerapplet
       hyprlock
@@ -67,6 +68,7 @@
 
     # Wireguard VPN
     networking.wg-quick.interfaces.wg0.configFile = "/home/enddy/.config/wireguard/xps13.conf";
+    systemd.services.wg-quick-wg0.wantedBy = lib.mkForce []; # Don't auto-start
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

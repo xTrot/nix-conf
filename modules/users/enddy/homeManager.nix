@@ -103,6 +103,7 @@ in {
       luarocks
       fd
       lua5_1
+      nil
 
       # Development
       alejandra
