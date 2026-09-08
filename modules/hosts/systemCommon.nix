@@ -103,6 +103,8 @@
       woeusb
       fuse2
       xdg-desktop-portal
+      grim
+      slurp
     ];
 
     environment.pathsToLink = ["/share/bash-completion"];
