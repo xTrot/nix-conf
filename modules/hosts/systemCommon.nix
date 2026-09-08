@@ -101,6 +101,8 @@
       docker-compose
       pciutils
       woeusb
+      fuse2
+      xdg-desktop-portal
     ];
 
     environment.pathsToLink = ["/share/bash-completion"];
