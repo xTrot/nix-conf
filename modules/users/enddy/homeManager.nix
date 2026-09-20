@@ -107,6 +107,7 @@ in {
       # Development
       alejandra
       go
+      gopls
       gotools
       jdk
       maven
