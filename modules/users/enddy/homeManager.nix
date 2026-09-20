@@ -75,7 +75,6 @@ in {
       file
       # TUIs
       lazygit
-      lazydocker
       television
 
       # Offline Wiki access.

@@ -82,13 +82,27 @@
 
     security.sudo.wheelNeedsPassword = false;
 
-    # Enable docker
-    virtualisation.docker = {
+    # Enable Podman
+    virtualisation.podman = {
       enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
+      dockerCompat = true; # Maps the `docker` command to `podman`
+      defaultNetwork.settings.dns_enabled = true; # Fixes container-to-container DNS resolution
+    };
+
+    virtualisation.containers.registries.settings = {
+      registry = [
+        {location = "docker.io";}
+        {location = "quay.io";}
+        {
+          location = "localhost:5000";
+          insecure = true;
+        }
+      ];
+    };
+
+    # Pointing lazydocker to Podman's system socket
+    environment.sessionVariables = {
+      DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
     };
 
     # Allow unfree packages
@@ -97,8 +111,11 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
+      # Containers
+      podman-compose
+      lazydocker
+
       # Tools
-      docker-compose
       pciutils
       woeusb
       fuse2
