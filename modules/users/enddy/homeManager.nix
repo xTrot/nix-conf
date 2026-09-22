@@ -81,13 +81,6 @@ in {
       kiwix
       kiwix-tools
 
-      # Nix
-      nixd
-      nix-inspect
-      nh
-      nvd
-      nix-output-monitor
-
       # Neovim dependencies
       gnumake
       gcc

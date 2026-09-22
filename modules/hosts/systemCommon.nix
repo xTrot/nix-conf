@@ -115,6 +115,13 @@
       podman-compose
       lazydocker
 
+      # Nix
+      nixd
+      nix-inspect
+      nh
+      nvd
+      nix-output-monitor
+
       # Tools
       pciutils
       woeusb
