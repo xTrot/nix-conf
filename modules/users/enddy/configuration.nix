@@ -2,10 +2,12 @@
   username = "enddy";
 in {
   flake.modules.nixos."${username}" = {...}: {
+    # User Definition Module
+
     users.users."${username}" = {
       isNormalUser = true;
       description = "${username}";
-      extraGroups = ["networkmanager" "wheel" "input" "uinput"];
+      extraGroups = ["networkmanager" "input" "uinput"];
       initialPassword = "changeme";
       openssh.authorizedKeys.keys = [
         # performus
@@ -22,5 +24,7 @@ in {
         inputs.self.modules.homeManager."${username}"
       ];
     };
+
+    # User Definition Module End
   };
 }

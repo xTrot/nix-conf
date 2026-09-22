@@ -24,6 +24,8 @@
       self.nixosModules.playback
       self.nixosModules.keyboard
 
+      # Users
+      self.modules.nixos.thewheeldeal
       self.modules.nixos.enddy
 
       # disko
