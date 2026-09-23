@@ -129,6 +129,8 @@
       xdg-desktop-portal
       grim
       slurp
+      alejandra
+      lazygit
     ];
 
     environment.pathsToLink = ["/share/bash-completion"];

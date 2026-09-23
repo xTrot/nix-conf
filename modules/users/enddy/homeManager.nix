@@ -74,7 +74,6 @@ in {
       tealdeer
       file
       # TUIs
-      lazygit
       television
 
       # Offline Wiki access.
@@ -98,7 +97,6 @@ in {
       nil
 
       # Development
-      alejandra
       go
       gopls
       gotools

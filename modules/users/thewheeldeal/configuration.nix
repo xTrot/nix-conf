@@ -21,10 +21,6 @@ in {
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      alejandra
-    ];
-
     # User Definition Module End
   };
 }
