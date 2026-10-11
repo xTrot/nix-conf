@@ -18,11 +18,11 @@
   flake.nixosModules.performusHw = {...}: {
     imports = [
       self.nixosModules.systemCommon
+      self.nixosModules.keyboard
       self.nixosModules.desktop
+      self.nixosModules.playback
       self.nixosModules.av
       self.nixosModules.gaming
-      self.nixosModules.playback
-      self.nixosModules.keyboard
 
       # Users
       self.modules.nixos.thewheeldeal
@@ -49,14 +49,8 @@
       openFirewall = true;
     };
 
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
     services.xserver.displayManager.autoLogin.enable = true;
     services.xserver.displayManager.autoLogin.user = "enddy";
-
-    # Enable the GNOME Desktop Environment.
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
 
     systemd.user.services.lock-on-login = {
       description = "Lock screen immediately after automatic login";

@@ -16,7 +16,7 @@
     ];
   };
 
-  flake.nixosModules.xps13Hw = {pkgs, ...}: {
+  flake.nixosModules.xps13Hw = {...}: {
     imports = [
       self.nixosModules.systemCommon
       self.nixosModules.desktop
@@ -33,35 +33,6 @@
     ];
 
     networking.hostName = "xps13"; # Define your hostname.
-
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [
-      # Hyprland config
-      (
-        waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-        })
-      )
-      mako
-      libnotify
-      waybar
-      font-awesome
-      awww
-      rofi
-      networkmanagerapplet
-      hyprlock
-      hypridle
-    ];
-
-    # Hyprland config
-    services.xserver.enable = true;
-    xdg.portal.enable = true;
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
 
     # List services that you want to enable:
 
