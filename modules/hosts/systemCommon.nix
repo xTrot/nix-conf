@@ -162,6 +162,9 @@
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
 
+    services.locate.enable = true;
+    services.locate.locate = pkgs.mlocate;
+
     # System common module end.
   };
 }

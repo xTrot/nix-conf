@@ -63,7 +63,6 @@ in {
       websocat
       tree
       dos2unix
-      mlocate
       fastfetch
       stow
       postgresql_18
