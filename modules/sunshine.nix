@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.sunshine = {...}: {
+  flake.nixosModules.sunshine = {pkgs, ...}: {
     # Enables Sunshine and tricks to improve it.
 
     services.sunshine = {
@@ -7,6 +7,14 @@
       autoStart = true;
       capSysAdmin = true;
       openFirewall = true;
+      settings = {
+        capture = "portal";
+      };
+    };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gnome];
     };
 
     hardware.uinput.enable = true;
